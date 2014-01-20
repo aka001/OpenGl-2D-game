@@ -1,0 +1,6 @@
+In this game only basic shapes have been implemented like:
+triangle for cannon.
+Red Cylinder and Green Cylinder for red and green baskets respectively.
+
+Description:
+	A cannon is placed at the bottom part of the area which fires laser and two baskets are placed at two opposite corners which can collect all the three spiders(rectangle in this case with colors green,black and red). If a 

@@ -1,0 +1,16 @@
+In this game only basic shapes have been implemented like:
+triangle for cannon.
+Red Cylinder and Green Cylinder for red and green baskets respectively.
+
+Description:
+
+	A cannon is placed at the bottom part of the area which fires laser and two baskets(green and red) are placed at two opposite corners which can collect all the three spiders(rectangle in this case with colors green,black and red). If basket of a particular color catches spider of same color then score increases by 1 and if it hits a spider of different color then score decreases by 1.
+	The laser fired by the cannon can eliminate spider of any color but if it hits the black spider then it's score increases by 1 and if it hits any other spider then it's score decreases by 1.
+	If neither the laser nor the bucket is able to catch the spider then the spider lands on the floor blocking laser as well as both the buckets.
+
+
+Controls:
+
+	Select the cannon by using 'b' button and move it using the cursor left(<-) and cursor right(->) on the keyboard and fire laser using 'spacebar' key.
+	Select the green bucket using 'g' button and move it using the cursor left(<-) and cursor right(->) on the keyboard.
+	Select the red bucket using 'r' button and move it using the cursor left(<-) and cursor right(->) on the keyboard.
