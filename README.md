@@ -11,43 +11,38 @@ The INPUT format is as follows:
 	The second line asks you for the world length(give it less than 4, apparently for greater than 4 my code doesn't work)  
 	The third line asks you for the difficulty level(1,2 or 3)  
 	
-In this game we have 3 types of OBJECTS:
-1. Cannon: which can shoot spiders by rotating itself also by traversing horizontally. 
-2. Spiders: There are three colors of spiders: green, red and black.
-3. Baskets: There are two colors of baskets: green and red.
+In this game we have 3 types of OBJECTS:  
+1. Cannon: which can shoot spiders by rotating itself also by traversing horizontally.   
+2. Spiders: There are three colors of spiders: green, red and black.  
+3. Baskets: There are two colors of baskets: green and red.  
 
-DESCRIPTION:
+DESCRIPTION:  
 
-	A cannon is placed at the bottom part of the area which fires laser and two baskets(green and red) are placed at two opposite corners which can collect all the three spiders(rectangle in this case with colors green,black and red).
-	The laser fired by the cannon can eliminate spider of any color and the score will be calculates according to the scoring strategy as described under the scoring section
-	If neither the laser nor the bucket is able to catch the spider then the spider lands on the floor blocking laser as well as both the buckets.
-	If a spider hits the laser then the game is stopped.
+	A cannon is placed at the bottom part of the area which fires laser and two baskets(green and red) are placed at two opposite corners which can collect all the three spiders(rectangle in this case with colors green,black and red).  
+	The laser fired by the cannon can eliminate spider of any color and the score will be calculates according to the scoring strategy as described under the scoring section  
+	If neither the laser nor the bucket is able to catch the spider then the spider lands on the floor blocking laser as well as both the buckets.  
+	If a spider hits the laser then the game is stopped.  
 
-CONTROLS:
+CONTROLS:  
 
-1. Cannon can be selected by pressing the key "b" and it can then be moved horizontally by using cursor left and right keys(<- and ->). It can be rotated by using the cursor up and down keys. The laser can be fired by using spacebar key.It can be moved to left and right end by using home and end key respectively.
-2. Cannon can also be selected by left clicking on it and dragging it alongside. It can be rotated by right clicking on it and dragging the cursor.
-3. Green basket can be selected using the key "g" and it can then be moved horizontally by using cursor left and right keys(<- and ->).
-4. Green basket can also be selected by left clicking on it and dragging it alongside using mouse.
-5. Green basket can be moved to left and right end by using home and end key respectively after being selected.
-6. Red basket can be selected using the key "g" and it can then be moved horizontally by using cursor left and right keys(<- and ->).
-7. Red basket can also be selected by left clicking on it and dragging it alongside using mouse.
-8. Red basket can be moved to left and right end by using home and end key respectively after being selected.
+1. Cannon can be selected by pressing the key "b" and it can then be moved horizontally by using cursor left and right keys(<- and ->). It can be rotated by using the cursor up and down keys. The laser can be fired by using spacebar key.It can be moved to left and right end by using home and end key respectively.  
+2. Cannon can also be selected by left clicking on it and dragging it alongside. It can be rotated by right clicking on it and dragging the cursor.  
+3. Green basket can be selected using the key "g" and it can then be moved horizontally by using cursor left and right keys(<- and ->).  
+4. Green basket can also be selected by left clicking on it and dragging it alongside using mouse.  
+5. Green basket can be moved to left and right end by using home and end key respectively after being selected.  
+6. Red basket can be selected using the key "g" and it can then be moved horizontally by using cursor left and right keys(<- and ->).  
+7. Red basket can also be selected by left clicking on it and dragging it alongside using mouse.  
+8. Red basket can be moved to left and right end by using home and end key respectively after being selected.  
 
-SCORING:
+SCORING:  
 
-1. If cannon hits the black spider then score increases by 1. If it hits the green and red spider the score decreases by 1.
-2. If spider falls on the ground the score decreases by 5.
-3. If red basket collects red spider then score increases by 1. If it collects any other spider then score decreases by 1.
-4. If green basket collects green spider then score increases by 1. If it collects any other spider then score decreases by 1.
+1. If cannon hits the black spider then score increases by 1. If it hits the green and red spider the score decreases by 1.  
+2. If spider falls on the ground the score decreases by 5.  
+3. If red basket collects red spider then score increases by 1. If it collects any other spider then score decreases by 1.  
+4. If green basket collects green spider then score increases by 1. If it collects any other spider then score decreases by 1.  
 
-ADDITIONAL FEATURES:
+ADDITIONAL FEATURES:  
 
-1. Real time scoring. The score will be displayed in real time while playing the game.
-2. The cannon and the baskets can move to the left and right end by using the home and end key respectively.
-3. Sound is played when a laser is fired from the cannon.
-
-
-
- 
-
+1. Real time scoring. The score will be displayed in real time while playing the game.  
+2. The cannon and the baskets can move to the left and right end by using the home and end key respectively.  
+3. Sound is played when a laser is fired from the cannon.  
