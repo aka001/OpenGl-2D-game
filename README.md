@@ -1,7 +1,6 @@
-Name: Akash Agrawall
-Roll: 201202061
+Author: Akash Agrawall  
 
-Extract the zipped folder(Assignment1_interim.zip)
+Extract the zipped folder(Assignment1_interim.zip)  
 go to that folder(using cd command)
 type the command:(without quotes)
 "make"
