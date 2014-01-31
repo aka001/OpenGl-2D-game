@@ -16,12 +16,12 @@ In this game we have 3 types of OBJECTS:
 2. Spiders: There are three colors of spiders: green, red and black.  
 3. Baskets: There are two colors of baskets: green and red.  
 
-DESCRIPTION:  
+DESCRIPTION  
 
-	A cannon is placed at the bottom part of the area which fires laser and two baskets(green and red) are placed at two opposite corners which can collect all the three spiders(rectangle in this case with colors green,black and red).  
-	The laser fired by the cannon can eliminate spider of any color and the score will be calculates according to the scoring strategy as described under the scoring section  
-	If neither the laser nor the bucket is able to catch the spider then the spider lands on the floor blocking laser as well as both the buckets.  
-	If a spider hits the laser then the game is stopped.  
+A cannon is placed at the bottom part of the area which fires laser and two baskets(green and red) are placed at two opposite corners which can collect all the three spiders(rectangle in this case with colors green,black and red).  
+The laser fired by the cannon can eliminate spider of any color and the score will be calculates according to the scoring strategy as described under the scoring section  
+If neither the laser nor the bucket is able to catch the spider then the spider lands on the floor blocking laser as well as both the buckets.  
+If a spider hits the laser then the game is stopped.  
 
 CONTROLS:  
 
