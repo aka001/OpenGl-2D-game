@@ -11,5 +11,5 @@ The INPUT format is as follows:
 	The second line asks you for the world length(give it less than 4, apparently for greater than 4 my code doesn't work)  
 	The third line asks you for the difficulty level(1,2 or 3)  
 
-The controls of the game are same as given in the pdf.  
+ 
 
