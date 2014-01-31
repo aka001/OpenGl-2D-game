@@ -54,11 +54,6 @@ typedef struct laser
 }laser;
 vector <laser> lser;
 
-typedef struct ball
-{
-	float ball_x,ball_y,ball_velx,ball_vely,ball_rad;
-}ball;
-
 typedef struct rectangle
 {
 	float x1,y1,x2,y2,flag;
@@ -68,22 +63,9 @@ typedef struct rectangle
 }spider;
 vector <spider> spidy;
 
-ball arr[1000000];
-float ball1_x = 0.5f;
-float ball1_y = 0.5f;
-float ball1_velx = 0.02f;
-float ball1_vely = 0.03f;
-float ball1_rad = 0.3f;
-
-float ball_x = 1.0f;
-float ball_y = 0.0f;
-float ball_velx = 0.01f;
-float ball_vely = 0.02f;
-float ball_rad = 0.2f;
-
 float box_len = 4.0f;
 float tri_x = 0.0f;
-float tri_y = -3.5f;
+float tri_y = -0.875*box_len;
 float theta = 0.0f;
 
 int green_flag=0,red_flag=0,once_flag=1;
@@ -108,10 +90,10 @@ int default_flag=1,space_flag=1;
 
 int w,h,windowWidth,windowHeight;
 
-float gb_limx1=-3.1,gb_limx2=3.2,rb_limx1=-3.2,rb_limx2=3.1;
+float gb_limx1=-0.775*box_len,gb_limx2=0.8*box_len,rb_limx1=-0.8*box_len,rb_limx2=0.775*box_len;
 
 //laser variables
-float laser_len=0.1*box_len;
+float laser_len=0.2*box_len;
 //tank variables 
 float tank1_hei=0.1*box_len*0.4; 
 float tank1_wid=0.1*box_len;
@@ -214,22 +196,151 @@ float leg16_ele=-0.05*box_len/4;
 
 int turn=0,difficulty_level=2;
 char ch='n';
+
+void initialiseagain()
+{
+	tri_x = 0.0f;
+	tri_y = -0.875*box_len;
+	theta = 0.0f;
+
+	gb_x=0.9*box_len;
+	gb_y=-0.95*box_len;
+	rb_x=-0.9*box_len;
+	rb_y=-0.95*box_len;
+
+	tri_limx1=-0.9*box_len,tri_limx2=0.9*box_len;
+	speed_min=0.01f,speed_max=0.05f;
+
+	update_flag=1;
+	start_flag=1;
+
+	gb_limx1=-0.775*box_len;
+	gb_limx2=0.8*box_len;
+	rb_limx1=-0.8*box_len;
+	rb_limx2=0.775*box_len;
+
+	//laser variables
+	laser_len=0.2*box_len;
+	//tank variables 
+	tank1_hei=0.1*box_len*0.4; 
+	tank1_wid=0.1*box_len;
+
+	tank2_hei=0.1*box_len*0.6; 
+	tank2_wid=0.05*box_len;
+
+	tank3_hei=0.01*box_len/4; 
+	tank3_wid=0.1*box_len/4;
+	tank4_hei=0.3*box_len/4; 
+	tank4_wid=0.05*box_len/4; //tank variables end
+
+	//spider variables begin
+	rad_x=0.05*box_len/4; 
+	rad_y=0.07*box_len/4;
+
+	leg1_x=-1*0.05*box_len/4; 
+	leg1_y=0.0f; 
+	leg1_hei=0.1*box_len/4; 
+	leg1_ele=0.01*box_len/4;
+
+	leg2_x=-0.15*box_len/4; 
+	leg2_y=0.01*box_len/4; 
+	leg2_hei=0.1*box_len/4; 
+	leg2_ele=0.05*box_len/4;
+
+	leg3_x=-0.15*box_len/4; 
+	leg3_y=-0.03*box_len/4; 
+	leg3_hei=0.1*box_len/4; 
+	leg3_ele=-0.05*box_len/4;
+
+	leg4_x=0.05*box_len/4; 
+	leg4_y=0.0; 
+	leg4_hei=-0.1*box_len/4; 
+	leg4_ele=0.01*box_len/4;
+
+	leg5_x=0.15*box_len/4; 
+	leg5_y=0.01*box_len/4; 
+	leg5_hei=-0.1*box_len/4; 
+	leg5_ele=0.05*box_len/4;
+
+	leg6_x=-0.05*box_len/4; 
+	leg6_y=-0.03*box_len/4; 
+	leg6_hei=0.1*box_len/4; 
+	leg6_ele=-0.01*box_len/4;
+
+	leg7_x=0.05*box_len/4; 
+	leg7_y=-0.03*box_len/4; 
+	leg7_hei=-0.1*box_len/4; 
+	leg7_ele=-0.01*box_len/4;
+
+	leg8_x=0.15*box_len/4; 
+	leg8_y=-0.03*box_len/4; 
+	leg8_hei=-0.1*box_len/4; 
+	leg8_ele=-0.05*box_len/4;
+
+	leg9_x=-0.05*box_len/4; 
+	leg9_y=0.13*box_len/4; 
+	leg9_hei=-0.05*box_len/4; 
+	leg9_ele=-0.1*box_len/4;
+
+	leg10_x=-0.15*box_len/4; 
+	leg10_y=0.18*box_len/4; 
+	leg10_hei=-0.1*box_len/4; 
+	leg10_ele=-0.05*box_len/4;
+
+	leg11_x=0.03*box_len/4; 
+	leg11_y=0.05*box_len/4; 
+	leg11_hei=-0.05*box_len/4; 
+	leg11_ele=0.1*box_len/4;
+
+	leg12_x=0.08*box_len/4; 
+	leg12_y=0.15*box_len/4; 
+	leg12_hei=-0.1*box_len/4; 
+	leg12_ele=0.05*box_len/4;
+
+	leg13_x=-0.02*box_len/4; 
+	leg13_y=-0.06*box_len/4; 
+	leg13_hei=0.05*box_len/4; 
+	leg13_ele=-0.1*box_len/4;
+
+	leg14_x=-0.07*box_len/4; 
+	leg14_y=-0.15*box_len/4; 
+	leg14_hei=0.1*box_len/4; 
+	leg14_ele=-0.05*box_len/4;
+
+	leg15_x=0.02*box_len/4; 
+	leg15_y=-0.05*box_len/4; 
+	leg15_hei=-0.05*box_len/4; 
+	leg15_ele=-0.1*box_len/4;
+
+	leg16_x=0.06*box_len/4; 
+	leg16_y=-0.14*box_len/4; 
+	leg16_hei=-0.1*box_len/4; 
+	leg16_ele=-0.05*box_len/4;
+}
 int main(int argc, char **argv) 
 {
 	printf("These are the default values of the world\n");
 	printf("==========================================\n");
-	printf("box_len=%f\ndifficulty_level=%d\ncannon_x=%f\tcannon_y=%f\ngreen_basket_x=%f\tgreen_basket_y=%f\nred_basket_x=%f\tred_basket_y=%f\n",box_len,difficulty_level,tri_x,tri_y,gb_x,gb_y,rb_x,rb_y);
+	printf("box_len=%f\ndifficulty_level=%d\n",box_len,difficulty_level);
 	printf("==========================================\n");
 	printf("Do you want to enter the values or continue(y/n)");
 	ch=getchar();
+	float box_lend;
+	int difficulty_leveld;
 	if(ch=='y')
 	{
-		scanf("%f",&box_len);
-		scanf("%d",&difficulty_level);
-		scanf("%f %f",&tri_x,&tri_y);
-		scanf("%f %f",&gb_x,&gb_y);
-		scanf("%f %f",&rb_x,&rb_y);
+		scanf("%f",&box_lend);
+		scanf("%d",&difficulty_leveld);
 	}
+	if(ch=='y')
+	{
+		if(box_lend>0)
+			box_len=box_lend;
+		if(difficulty_leveld>=1 && difficulty_leveld<=3)
+			difficulty_level=difficulty_leveld;
+	}
+	printf("%f %d\n",box_len,difficulty_level);
+	initialiseagain();
 	// Initialize GLUT
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
@@ -714,60 +825,120 @@ void drawScene()
 		glPushMatrix(); 
 		glTranslatef(tri_x, tri_y, -5.0f); 
 		glRotatef(theta, 0.0f, 0.0f, -5.0f);
-		if(turn==0) 
-			glColor3f(3.5f, 0.5f, 0.5f); 
-		else 
-			glColor3f(0.5f, 0.2f, 0.0f); 
+		if(turn==0)
+		{
+			if(tri_flag==1)
+				glColor3f(3.5f, 0.5f, 0.5f); 
+			else
+				glColor3f(0.37f,0.62f,0.62f);
+		}
+		else
+		{
+			if(tri_flag==1)
+				glColor3f(0.5f, 0.2f, 0.0f); 
+			else
+				glColor3f(0.37f,0.62f,0.62f);
+		}
 		drawrect(tank1_wid,tank1_hei); 
 		glPopMatrix();
 
 		glPushMatrix(); 
 		glTranslatef(tri_x, tri_y, -5.0f);
 		glRotatef(theta, 0.0f, 0.0f, -5.0f); 
-		if(turn==0) 
-			glColor3f(3.5f, 0.5f, 0.5f); 
-		else 
-			glColor3f(0.5f, 0.2f, 0.0f); 
+		if(turn==0)
+		{
+			if(tri_flag==1)
+				glColor3f(3.5f, 0.5f, 0.5f); 
+			else
+				glColor3f(0.37f,0.62f,0.62f);
+		}
+		else
+		{
+			if(tri_flag==1)
+				glColor3f(0.5f, 0.2f, 0.0f); 
+			else
+				glColor3f(0.37f,0.62f,0.62f);
+		}
 		drawrect1(tank2_wid,tank2_hei); 
 		glPopMatrix();
 
 		glPushMatrix(); 
 		glTranslatef(tri_x, tri_y, -5.0f); 
 		glRotatef(theta, 0.0f, 0.0f, -5.0f); 
-		if(turn==0) 
-			glColor3f(3.5f, 0.5f, 0.5f); 
-		else 
-			glColor3f(0.5f, 0.2f, 0.0f); 
+		if(turn==0)
+		{
+			if(tri_flag==1)
+				glColor3f(3.5f, 0.5f, 0.5f); 
+			else
+				glColor3f(0.37f,0.62f,0.62f);
+		}
+		else
+		{
+			if(tri_flag==1)
+				glColor3f(0.5f, 0.2f, 0.0f); 
+			else
+				glColor3f(0.37f,0.62f,0.62f);
+		}
 		drawrect2(tank3_wid,tank3_hei); 
 		glPopMatrix();
 
 		glPushMatrix(); 
 		glTranslatef(tri_x, tri_y, -5.0f);
 		glRotatef(theta, 0.0f, 0.0f, -5.0f); 
-		if(turn==0) 
-			glColor3f(3.5f, 0.5f, 0.5f); 
-		else 
-			glColor3f(0.5f, 0.2f, 0.0f); 
+		if(turn==0)
+		{
+			if(tri_flag==1)
+				glColor3f(3.5f, 0.5f, 0.5f); 
+			else
+				glColor3f(0.37f,0.62f,0.62f);
+		}
+		else
+		{
+			if(tri_flag==1)
+				glColor3f(0.5f, 0.2f, 0.0f); 
+			else
+				glColor3f(0.37f,0.62f,0.62f);
+		}
 		drawrect3(tank3_wid,tank3_hei); 
 		glPopMatrix();
 
 		glPushMatrix(); 
 		glTranslatef(tri_x, tri_y, -5.0f);
 		glRotatef(theta, 0.0f, 0.0f, -5.0f); 
-		if(turn==0) 
-			glColor3f(3.5f, 0.5f, 0.5f); 
-		else 
-			glColor3f(0.5f, 0.2f, 0.0f); 
+		if(turn==0)
+		{
+			if(tri_flag==1)
+				glColor3f(3.5f, 0.5f, 0.5f); 
+			else
+				glColor3f(0.37f,0.62f,0.62f);
+		}
+		else
+		{
+			if(tri_flag==1)
+				glColor3f(0.5f, 0.2f, 0.0f); 
+			else
+				glColor3f(0.37f,0.62f,0.62f);
+		}
 		drawrect4(tank4_wid,tank4_hei);
 		glPopMatrix();
 
 		glPushMatrix(); 
 		glTranslatef(tri_x, tri_y, -5.0f); 
 		glRotatef(theta, 0.0f, 0.0f, -5.0f); 
-		if(turn==0) 
-			glColor3f(3.5f, 0.5f, 0.5f); 
-		else 
-			glColor3f(0.5f, 0.2f, 0.0f); 
+		if(turn==0)
+		{
+			if(tri_flag==1)
+				glColor3f(3.5f, 0.5f, 0.5f); 
+			else
+				glColor3f(0.37f,0.62f,0.62f);
+		}
+		else
+		{
+			if(tri_flag==1)
+				glColor3f(0.5f, 0.2f, 0.0f); 
+			else
+				glColor3f(0.37f,0.62f,0.62f);
+		}
 		drawrect5(tank4_wid,tank4_hei); 
 		glPopMatrix();	
 
@@ -824,7 +995,7 @@ void drawScene()
 }
 void Score() 
 { 
-	glRasterPos2f(2.0f,1.0f); 
+	glRasterPos2f(box_len/2.0,box_len/4.0f); 
 	char string[10]="SCORE : "; 
 	int i; 
 	for(i=0;i<(int)(strlen(string));i++) 
@@ -845,7 +1016,7 @@ void drawEndGame()
 	glPushMatrix();
 	glLoadIdentity();
 	glColor3f(1.0f, 0.0f, 0.0f);//needs to be called before RasterPos
-	glRasterPos2f(2.0,2.5);
+	glRasterPos2f(box_len/2.0,0.625*box_len);
 	std::string s = "Game Over";
 	void * font = GLUT_BITMAP_9_BY_15;
 
@@ -861,7 +1032,7 @@ void drawEndGame()
 	glPushMatrix();
 	glLoadIdentity();
 	glColor3f(1.0f, 0.0f, 0.0f);//needs to be called before RasterPos
-	glRasterPos2f(2.0,1.8);
+	glRasterPos2f(box_len/2.0,0.65*box_len);
 	ostringstream convert;
 	convert << score;
 	string res=convert.str();
@@ -989,7 +1160,7 @@ void drawGluCylinder(float height,float radius,float slices,float stacks)
 	} 
 	gluCylinder( myReusableQuadric, radius, radius, height, slices, stacks ); 
 }
-float shift_it=0.1;
+float shift_it=0.25;
 // Function to handle all calculations in the scene
 // updated evry 10 milliseconds
 void update(int value) {
@@ -1069,12 +1240,12 @@ void update(int value) {
 		float glx1,glx2,guy;
 		float storeit1,storeit2;
 		float trilimx1,trilimx2,trilimy;
-		rlx1=rb_x-box_len/40.0;
-		rlx2=rb_x+box_len/40.0;
-		ruy=rb_y+box_len/40.0;
-		glx1=gb_x-box_len/40.0;
-		glx2=gb_x+box_len/40.0;
-		guy=gb_y+box_len/40.0;
+		rlx1=rb_x-box_len/10.0;
+		rlx2=rb_x+box_len/10.0;
+		ruy=rb_y+box_len/10.0;
+		glx1=gb_x-box_len/10.0;
+		glx2=gb_x+box_len/10.0;
+		guy=gb_y+box_len/10.0;
 		for(i=0;i<l2;i++)
 		{
 			trilimx1=tri_x-0.5;
@@ -1084,11 +1255,8 @@ void update(int value) {
 			strct1=spidy[i];
 			storeit1=strct1.y1-ruy;
 			storeit2=strct1.y1-guy;
-			//printf("%f %f %f\n",trilimx1,trilimx2,trilimy);
-			//printf("another %f %f %f\n",spidy[0].x1,spidy[0].x2,spidy[0].y2);
-			if(tri_x>strct1.spider_x-rad_x-leg1_hei && tri_x<strct1.spider_x+rad_x+leg1_hei && tri_y>strct1.spider_y-rad_y-leg1_hei && strct1.flag==0)
+			if((tri_x+box_len/10.0>strct1.spider_x) && (tri_x-box_len/10.0<strct1.spider_x) && (tri_y>strct1.spider_y-rad_y-leg1_hei) && (strct1.flag==0))
 				exit_flag=1;
-			//printf("score=%d\n",score);
 			if(strct1.flg==1)
 			{
 				if(strct1.spider_x>glx1 && strct1.spider_x<glx2 && strct1.spider_y-rad_y-2*leg1_hei<-0.9*box_len && strct1.flag==0)
@@ -1324,6 +1492,7 @@ void handleKeypress2(unsigned char key, int x, int y)
 			default_flag=0;
 			if(tri_flag)
 			{
+				system("aplay beep7.wav&");
 				tri_flag=0;
 				generateLaser(tri_x,tri_y,theta);
 				glutTimerFunc(1000,changeit,0);
@@ -1361,6 +1530,10 @@ void basketmove_green(int key,int x,int y)
 		if(gb_x<=gb_limx2)
 			gb_x += 0.1;
 	}
+	else if(key==GLUT_KEY_END)
+		gb_x=gb_limx2+box_len/10.0;
+	else if(key==GLUT_KEY_HOME)
+		gb_x=gb_limx1-box_len/10.0;
 	/*else if (key == GLUT_KEY_UP)
 	  gb_y += 0.1;
 	  else if (key == GLUT_KEY_DOWN)
@@ -1378,6 +1551,10 @@ void basketmove_red(int key,int x,int y)
 		if(rb_x <= rb_limx2)
 			rb_x += 0.1;
 	}
+	else if(key==GLUT_KEY_END)
+		rb_x=rb_limx2+box_len/10.0;
+	else if(key==GLUT_KEY_HOME)
+		rb_x=rb_limx1-box_len/10.0;
 	/*else if (key == GLUT_KEY_UP)
 	  {
 	  rb_y += 0.1;
@@ -1419,7 +1596,6 @@ void lasermove(int key, int x, int y)
 void handleMouseDrag(int x,int y) 
 { 
 	GetOGLPos(x,y);
-	printf("%c %f %f %f\n",selectit,mouseposx,gb_limx1,gb_limx2);
 	if(selectit=='b' && mouseposx<tri_limx2 && mouseposx>tri_limx1)
 	{
 		if(mouseposx*box_len/2.0<tri_limx2 && mouseposx*box_len/2.0>tri_limx1)
